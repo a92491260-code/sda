@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap');
+* {
+	margin: 0px;
+	font-family: 'Mulish', sans-serif;
+  --menu-height: 90px;
+}
+body {
+  padding: 0px;
+  color: white;
+}
+::-webkit-scrollbar {
+  background: rgba( 34, 34, 34, 0.25 );
+  width: 5px;
+}
+
+.dse:hover {
+  border: 1px solid rgba( 255, 255, 255, 0.3 );
+  background: rgba( 48, 48, 48, 0.5 );
+}
+::-webkit-scrollbar-thumb {
+background: rgb( 45, 45, 45);
+width: 5px;
+border-radius: 20px;
+}
+.bg {
+  background: rgb( 34, 34, 34);
+}
+.poster {
+  padding: 50px;
+  margin: 45px;
+  border-radius: 20px;
+  background: rgb(253,172,255);
+  background: linear-gradient(141deg, rgba(253,172,255,1) 0%, rgba(88,80,255,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(88,80,255,0.3), -10px -7px 30px 1px rgba(253,172,255,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  color: white;
+  width: 400px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.logo {
+  color: white;
+  font-weight: 800;
+  font-family: 'Unbounded', cursive;
+  
+}
+.form {
+    background-color: rgba( 46, 46, 46, 0.3);
+    color: white;
+    border-radius: 20px;
+    padding: 40px;
+    margin: 45px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+}
+.block {
+    background-color: rgba( 46, 46, 46, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: white;
+    border-radius: 40px;
+    padding: 40px;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    width: 80%;
+}
+input[type=text], input[type=password], input[type=number], select, input[type=date], input[type=color] {
+  color: white;
+  outline: none;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  background-color: rgba( 46, 46, 46, 0.8);
+  width: 100%;
+  border: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+#text {
+    color: white;
+  outline: none;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  background-color: rgba( 46, 46, 46, 0.8);
+  width: 100%;
+  border: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  outline: none;
+  resize: none;
+  min-height: 100px;
+}
+/* странное решение, да?)))) */
+#text1, #text2, #text3, #text4, #text5, #text6,
+#text7, #text8, #text9, #text10, #text11, #text12,
+#text13, #text14, #text15, #text16, #text17, #text18,#fds,#fds1  {
+    color: white;
+  outline: none;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+  background-color: rgba( 46, 46, 46, 0.8);
+  width: 100%;
+  border: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  outline: none;
+  resize: none;
+  min-height: 150px;
+}
+button[type=submit] {
+  
+  transition: 0.35s;
+  border-radius: 15px;
+  border: 0px;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+.m-f {
+  
+  transition: 0.35s;
+  border-radius: 12px;
+  border: 0px;
+  color: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+.btn-color  {
+  background: rgb(253,172,255);
+  background: linear-gradient(141deg, rgba(253,172,255,1) 0%, rgba(88,80,255,1) 100%);
+}
+.pass {
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+  border: 1px red solid;
+  margin-bottom: 20px;
+  background-color: rgba(255, 60, 60, 0.2);
+}
+.menu {
+  background: rgba( 34, 34, 34, 0.25 );
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+  width: 100%;
+  height: var(--menu-height);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  position: fixed;
+  text-align: center;
+  z-index: 999;
+}
+.list {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 40px;
+}
+.a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.a:hover {
+  color: white;
+}
+.list1 {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.purple {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(253,172,255);
+  background: linear-gradient(141deg, rgba(253,172,255,1) 0%, rgba(88,80,255,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(88,80,255,0.3), -10px -7px 30px 1px rgba(253,172,255,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.green {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(175,253,0);
+  background: linear-gradient(141deg, rgba(175,253,0,1) 0%, rgba(51,255,88,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(51,255,88,0.3), -10px -7px 30px 1px rgba(175,253,0,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.orange {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(253,148,0);
+  background: linear-gradient(141deg, rgba(253,148,0,1) 0%, rgba(255,109,51,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(255,109,51,0.3), -10px -7px 30px 1px rgba(253,148,0,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.blue {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(0,226,253);
+  background: linear-gradient(141deg, rgba(0,226,253,1) 0%, rgba(64,51,255,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(64,51,255,0.3), -10px -7px 30px 1px rgba(0,226,253,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.red {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(255,101,101);
+  background: linear-gradient(141deg, rgba(255,101,101,1) 0%, rgba(255,51,51,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(255,51,51,0.3), -10px -7px 30px 1px rgba(255,101,101,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.yellow {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(249,229,0);
+  background: linear-gradient(141deg, rgba(249,229,0,1) 0%, rgba(255,132,0,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(255,132,0,0.3), -10px -7px 30px 1px rgba(249,229,0,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.cyan {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(0,249,179);
+  background: linear-gradient(141deg, rgba(0,249,179,1) 0%, rgba(0,101,84,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(0,101,84,0.3), -10px -7px 30px 1px rgba(0,249,179,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.pink {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(249,0,176);
+background: linear-gradient(141deg, rgba(249,0,176,1) 0%, rgba(255,49,49,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(255,49,49,0.3), -10px -7px 30px 1px rgba(249,0,176,0.3), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.gray {
+  transition: 0.25s;
+  padding: 30px;
+  background: rgb(161,161,161);
+background: linear-gradient(90deg, rgba(161,161,161,1) 0%, rgba(103,103,103,1) 100%);
+  box-shadow: 5px 5px 30px 5px rgba(103,103,103,1), -10px -7px 30px 1px rgba(161,161,161,1), 5px 5px 30px 5px rgba(0,0,0,0);
+  border-radius: 15px;
+}
+.online {
+  color: lightgreen;
+}
+.offline {
+  color: red;
+}
+ .input {   
+  -webkit-appearance: none;
+  -moz-appearance: none;  
+  appearance: none;
+  width: 58px;
+  height: 35px;  
+  cursor: pointer;
+  border-radius: 30px;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+  top: 10px;
+  margin-right: 10px;
+}
+
+.input:checked { 
+  background: rgba(88,80,255,1);
+  border: 2px solid rgba(88,80,255,1);
+}
+
+.input::before {   
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #fff;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  transition: 0.3s;
+  margin-left: 5px;
+}
+
+.input:checked::before { 
+  background: #275efe;
+  border: none;
+  left: 27px;
+  background: white;  
+}
+.del-btn {
+background: rgb(245,0,0);
+background: linear-gradient(90deg, rgba(245,0,0,1) 0%, rgba(210,0,0,1) 35%);
+}
+.block {
+            width: 500px;
+        }
+.hidden-menu {
+  display: block;
+  position: fixed;
+  list-style:none;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 200px;
+  background-color: #eee;
+  height: 100%;
+  top: 0;
+  left: -200px;
+  transition: left .2s;
+  z-index: 2;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+.hidden-menu-ticker {
+  display: none;
+}
+.btn-menu {
+  color: #fff;
+  background-color: #666;
+  padding: 5px;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  transition: left .23s;
+  z-index: 3;
+  width: 25px;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+.btn-menu span {
+  display: block;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px 0 0;
+  transition: all .1s linear .23s;
+  position: relative;
+}
+.btn-menu span.first {
+  margin-top: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu {
+  left: 160px;
+}
+.hidden-menu-ticker:checked ~ .hidden-menu {
+  left: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.first {
+  -webkit-transform: rotate(45deg);
+  top: 10px;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.second {
+  opacity: 0;
+}
+.hidden-menu-ticker:checked ~ .btn-menu span.third {
+  -webkit-transform: rotate(-45deg);
+  top: -10px;
+}
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1000; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgba( 46, 46, 46, 0.3); /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    
+}
+/* The navigation menu links */
+.sidenav .fffff {
+    padding: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: 10px;
+    transition: 0.32s;
+    padding-left: 15px;
+    border: 1px solid transparent;
+}
+.sidenav .fffff-sel {
+    padding: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba( 50, 50, 50, 0.3);
+    border-radius: 12px;
+    margin: 10px;
+    transition: 0.32s;
+    padding-left: 15px;
+    border: 1px solid transparent;
+}
+/* When you mouse over the navigation links, change their color */
+.sidenav .fffff:hover {
+  border: 1px solid rgba( 80, 80, 80, 1);
+}
+.sidenav .fffff:active {
+  color: white;
+}
+.sidenav .fffff-sel {
+    color: #fff;
+    background-color: rgba( 50, 50, 50, 0.3);
+}
+.lllllll {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 5px;
+    color: #818181;
+    display: block;
+    cursor: pointer;
+    transition: 0.32s;
+    padding-left: 20px;
+}
+.lllllll:hover {
+  color: #fff;
+}
+.selected{
+        background-color: rgba( 50, 50, 50, 0.5);
+        color: white;
+    }
+/* Style page content */
+.main-content {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+.preloader {
+  /*фиксированное позиционирование*/
+  position: fixed;
+  /* координаты положения */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* фоновый цвет элемента */
+  
+  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  z-index: 1001;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader__row {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+.preloader__item {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  background-color: #337ab7;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  animation: preloader-bounce 2s infinite ease-in-out;
+}
+
+.preloader__item:last-child {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-bounce {
+
+  0%,
+  100% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.sd {
+  display: inline-block;
+  vertical-align: middle;
+}
