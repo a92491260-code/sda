@@ -18,9 +18,7 @@ $promo = R::findAll('promo');
 $freekassa = R::findOne('freekassa', ' id = ? ', ['1']);
 $enot = R::findOne('enot', ' id = ? ', ['1']);
 $unitpay = R::findOne('unitpay', ' id = ? ', ['1']);
-$anypay = R::findOne('anypay', ' id = ? ', ['1']);
-$payok = R::findOne('payok', ' id = ? ', ['1']);
-$aaio = R::findOne('aaio', ' id = ? ', ['1']);
+$yookassa = R::findOne('yookassa', ' id = ? ', ['1']);
 
 $ccolor = R::findOne('customcolor', 'id = ?', ['1']);
 $conv = R::findOne('curr', 'id = ?', ['1']);
@@ -353,14 +351,8 @@ y = false;
     $("#enot").click(function() {
       $("#sis").val("enot");
     });
-    $("#anypay").click(function() {
-      $("#sis").val("anypay");
-    });
-    $("#payok").click(function() {
-      $("#sis").val("payok");
-    });
-    $("#aaio").click(function() {
-      $("#sis").val("aaio");
+    $("#yookassa").click(function() {
+      $("#sis").val("yookassa");
     });
     $("#close").click(function() {
       $(".dialog1").hide();
@@ -421,20 +413,11 @@ $(".wmz").click(function() {
 
   <?php endif; ?>
 
-  <?php if ($anypay != null): ?>
-    <button id="anypay" class="as" formtarget="_parent" type="submit" style="width: 100%; background-color: white; border-radius: 15px; padding: 0px; margin-top: 10px; border: 0; margin-bottom: 10px;"><img src="img/any.jpg" style="height: 50px;"></button>
-
-  <?php endif; ?>
-  <?php if ($payok != null): ?>
-    <button id="payok" class="as" formtarget="_parent" type="submit" style="width: 100%; background-color: white; border-radius: 15px; padding: 0px; margin-top: 0px; border: 0; margin-bottom: 15px;"><img src="img/payok.jpg" style="height: 45px; margin-top: 5px;"></button>
-
-  <?php endif; ?>
-  <?php if ($aaio != null): ?>
-    <button id="aaio" class="as" formtarget="_parent" type="submit" style="width: 100%; background-color: white; border-radius: 15px; padding: 0px; margin-top: 0px; border: 0; margin-bottom: 15px;"><img src="img/aaio.jpg" style="height: 45px; margin-top: 5px;"></button>
-
+  <?php if ($yookassa != null): ?>
+    <button id="yookassa" class="as" formtarget="_parent" type="submit" style="width: 100%; background-color: white; border-radius: 15px; padding: 10px; margin-top: 0px; border: 0; margin-bottom: 15px; color: #000; font-weight: bold;">ЮKassa</button>
   <?php endif; ?>
 
-  <?php if ($freekassa == null and $enot == null and $unitpay == null and $anypay == null and $payok == null and $aaio == null): ?>
+  <?php if ($freekassa == null and $enot == null and $unitpay == null and $yookassa == null): ?>
     <br><h5 align="center">Пусто...</h5><br><br>
   <?php endif; ?>
 

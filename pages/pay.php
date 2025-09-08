@@ -17,9 +17,7 @@ if ($_POST['system'] == null) {
 $freekassa = R::findOne('freekassa', ' id = ? ', ['1']);
 $enot = R::findOne('enot', ' id = ? ', ['1']);
 $unitpay = R::findOne('unitpay', ' id = ? ', ['1']);
-$anypay = R::findOne('anypay', ' id = ? ', ['1']);
-$payok = R::findOne('payok', ' id = ? ', ['1']);
-$aaio = R::findOne('aaio', ' id = ? ', ['1']);
+$yookassa = R::findOne('yookassa', ' id = ? ', ['1']);
 $t = false;
 $shopsettings = R::findOne('shopsettings', ' id = ? ', [ '1' ]);
 $rcon = R::findOne('rcon', ' id = ? ', [ '1' ]);
@@ -107,7 +105,7 @@ if ($product->sale != null or $product->sale != "-") {
 }
 
 
-if ($freekassa == null and $enot == null and $unitpay == null and $anypay == null and $payok == null and $aaio == null) {
+if ($freekassa == null and $enot == null and $unitpay == null and $yookassa == null) {
   header("Location: /error?err=3");
 } else {
   if ($rcon1->connect()) {
@@ -144,83 +142,57 @@ if ($freekassa == null and $enot == null and $unitpay == null and $anypay == nul
         }
         }
         if ($_POST['system'] == "aaio") {
-          $s1 = $aaoi->shop_id;
-          $ide12112 = date('Y-m-d_H:i:s', time()); // Идентификатор заказа в Вашей системе
-          $merchant_idaa = $aaio->shop_id; // ID Вашего магазина
-$amountaa = $finalPrice; // Сумма к оплате
-$currencyaa = $curr; // Валюта заказа
-$secretaa = $aaio->secret_key; // Секретный ключ №1 из настроек магазина
-$signaa = hash('sha256', implode(':', [$merchant_idaa, $amountaa, $currencyaa, $secretaa, $ide12112]));
-$descaa = $nick; // Описание заказа
-$langaa = 'ru'; // Язык формы
-if ($type == "curr") {
-          setPayment($nick, $_POST['id'], $curr, $finalPrice, "Aaio", "Не оплачено", $promo, $_POST['kol']); 
-        } else {
-          setPayment($nick, $_POST['id'], $curr, $finalPrice, "Aaio", "Не оплачено", $promo, null); 
-        }
-// Выводим ссылку
-header("Location: ".'https://aaio.io/merchant/pay?' . http_build_query([
-  'merchant_id' => $merchant_idaa,
-  'amount' => $amountaa,
-  'currency' => $currencyaa,
-  'order_id' => $ide12112,
-  'sign' => $signaa,
-  'desc' => $descaa,
-  'lang' => $langaa
-]));
-        }
-        if ($_POST['system'] == "anypay") {
-          $si = $anypay->shop_id;
-          $sk = $anypay->secret_key;
-          $anyemail = ($_POST['mail'] != null) ? "&email=".$_POST['mail'] : "";
-            
+        if ($_POST['system'] == "yookassa") {
+          $shop_id = $yookassa->shop_id;
+          $secret_key = $yookassa->secret_key;
           
           if ($type == "curr") {
-          setPayment($nick, $_POST['id'], $curr, $finalPrice, "AnyPay", "Не оплачено", $promo, $_POST['kol']);
-        } else {
-          setPayment($nick, $_POST['id'], $curr, $finalPrice, "AnyPay", "Не оплачено", $promo, null);
-        }
-          $ide = R::findOne('payments', 'ORDER BY id DESC');
-          $arr_sign = array( 
-            $si, 
-            $ide->id,
-            $finalPrice, 
-            $curr, 
-            $nick, 
-            '', 
-            '', 
-            $sk
+            setPayment($nick, $_POST['id'], $curr, $finalPrice, "ЮKassa", "Не оплачено", $promo, $_POST['kol']);
+          } else {
+            setPayment($nick, $_POST['id'], $curr, $finalPrice, "ЮKassa", "Не оплачено", $promo, null);
+          }
+          
+          $payment_id = R::findOne('payments', 'ORDER BY id DESC');
+          
+          // Создание платежа через API ЮKassa
+          $data = array(
+            'amount' => array(
+              'value' => number_format($finalPrice, 2, '.', ''),
+              'currency' => 'RUB'
+            ),
+            'confirmation' => array(
+              'type' => 'redirect',
+              'return_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/succes'
+            ),
+            'capture' => true,
+            'description' => 'Покупка товара ' . $product->name . ' для игрока ' . $nick,
+            'metadata' => array(
+              'payment_id' => $payment_id->id,
+              'nick' => $nick
+            )
           );
-          $anypayhash = hash('sha256', implode(':', $arr_sign));
-          header("Location: https://anypay.io/merchant?merchant_id=".$si."&pay_id=".$ide->id."&amount=".$finalPrice."&currency=".$curr.$anyemail."&sign=".$anypayhash."&desc=".$nick);    
-        }
-
-        if ($_POST['system'] == "payok") {
-          $si1 = $payok->shop_id;
-          $sk1 = $payok->secret_key;
-          $payokemail = ($_POST['mail'] != null) ? "&email=".$_POST['mail'] : "";
-            
           
-          if ($type == "curr") {
-          setPayment($nick, $_POST['id'], $curr, $finalPrice, "PayOk", "Не оплачено", $promo, $_POST['kol']);
-        } else {
-          setPayment($nick, $_POST['id'], $curr, $finalPrice, "PayOk", "Не оплачено", $promo, null);
-        }
-          $ide = R::findOne('payments', 'ORDER BY id DESC');
-
-          $array = array (
-
-$amount = $finalPrice,
-$payment = $nick.":".$ide->id,
-$shop = $si1,
-$currency = $curr,
-$desc = 'Покупка товара '.$product->name,
-$secret = $sk1 //Узнайте свой секретный ключ в личном кабинете
-
-);
-
-          $payoksign = md5 ( implode ( '|', $array ) );
-          header("Location: https://payok.io/pay?shop=".$si1."&amount=".$finalPrice."&desc=Покупка товара $product->name&currency=".$curr."&sign=".$payoksign."&payment=".$nick.":".$ide->id.$payokemail);    
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, 'https://api.yookassa.ru/v3/payments');
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_POST, true);
+          curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Basic ' . base64_encode($shop_id . ':' . $secret_key),
+            'Idempotence-Key: ' . uniqid()
+          ));
+          
+          $response = curl_exec($ch);
+          curl_close($ch);
+          
+          $payment_data = json_decode($response, true);
+          
+          if (isset($payment_data['confirmation']['confirmation_url'])) {
+            header("Location: " . $payment_data['confirmation']['confirmation_url']);
+          } else {
+            header("Location: /error?err=3");
+          }
         }
         if ($_POST['system'] == "unitpay") {
           $shop = $unitpay->shop_id;
